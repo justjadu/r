@@ -1,1 +1,32 @@
+#Task 2: Combine Multiple Logical Conditions and Calculate Sum, Average, Minimum, and Maximum of the First 10 Natural Numbers using a For Loop
 
+
+
+sum_numbers <- 0
+min_number <- Inf
+max_number <- -Inf
+
+# Calculate sum, average, minimum, and maximum of the first 10 natural numbers
+for (i in 1:10) {
+  # Sum calculation
+  sum_numbers <- sum_numbers + i
+  
+  # Minimum calculation
+  if (i < min_number) {
+    min_number <- i
+  }
+  
+  # Maximum calculation
+  if (i > max_number) {
+    max_number <- i
+  }
+}
+
+# Calculate average
+average <- sum_numbers / 10
+
+# Print results
+cat("Sum:", sum_numbers, "\n")
+cat("Average:", average, "\n")
+cat("Minimum:", min_number, "\n")
+cat("Maximum:", max_number, "\n")
