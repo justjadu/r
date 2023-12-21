@@ -1,0 +1,25 @@
+# Read data from the "Census.csv" file into a dataframe
+census_data <- read.csv("Census.csv")
+
+# Display the first few rows of the dataframe
+cat("First few rows of the dataframe:\n")
+head(census_data)
+
+# Run Frequencies to explore the distributions
+frequencies_result <- summary(census_data)
+
+# Display frequencies result
+cat("Frequencies Result:\n")
+print(frequencies_result)
+
+# Visualize the data: Line Graph (replace variables with actual column names)
+matplot(census_data[, c("Var1", "Var2", "Var3")], type = "l", main = "Line Graph", xlab = "Index", ylab = "Values")
+
+# Visualize the data: Scatter Plot (replace variables with actual column names)
+plot(census_data$Var1, census_data$Var2, main = "Scatter Plot", xlab = "Var1", ylab = "Var2")
+
+# Visualize the data: Histogram (replace variables with actual column names)
+hist(census_data$Var3, main = "Histogram", xlab = "Var3", col = "green", border = "black")
+
+# Visualize the data: Dot Plot (replace variables with actual column names)
+stripchart(census_data$Var1, method = "stack", main = "Dot Plot", xlab = "Var1", pch = 19)
