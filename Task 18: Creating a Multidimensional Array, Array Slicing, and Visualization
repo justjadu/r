@@ -1,0 +1,9 @@
+# Create a multidimensional array
+multidim_array <- array(1:9, dim = c(3, 3, 1))
+multidim_array
+# Perform array slicing to extract a specific subarray
+subarray <- multidim_array[,3,]
+subarray
+# Visual representation of matrix values using line or scatter plot
+plot(subarray, type = "l", xlab = "Index", ylab = "Value", main = "Line Plot")
+plot(subarray, xlab = "Column", ylab = "Value", main = "Scatter Plot")
