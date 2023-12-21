@@ -1,0 +1,26 @@
+# Load necessary libraries
+library(dplyr)
+
+# Read data from CSV file
+drinks_data <- read.csv("D:/ASA/csv/Drinks.csv")
+
+# Choose a quantitative variable (replace "variable_name" with the actual variable name)
+variable_name <- "beer_servings"
+
+# Create a frequency distribution table
+freq_table <- table(drinks_data[[variable_name]])
+
+# Convert to data frame for better manipulation
+freq_df <- as.data.frame(freq_table)
+
+# Rename columns for clarity
+colnames(freq_df) <- c("Value", "Frequency")
+
+# Compute relative frequencies
+freq_df$Relative_Frequency <- freq_df$Frequency / sum(freq_df$Frequency)
+
+# Compute cumulative relative frequencies
+freq_df$Cumulative_Relative_Frequency <- cumsum(freq_df$Relative_Frequency)
+
+# Print the frequency distribution table
+print(freq_df)
