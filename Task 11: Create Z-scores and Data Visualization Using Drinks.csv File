@@ -1,28 +1,24 @@
-# Install required packages if not installed
-# install.packages("readr")
+# Read data from the "Drinks.csv" file into a dataframe
+drinks_data <- read.csv("D:/ASA/csv/Drinks.csv")
 
-# Load required library
-library(readr)
+# Display the first few rows of the dataframe
+cat("First few rows of the dataframe:\n")
+head(drinks_data)
+# Standardize (Z-) scores for several variables
+standardized_data <- scale(drinks_data[, c("beer_servings", "spirit_servings", "wine_servings")])
 
-# Read data from CSV file
-file_path <- "D:\\semester 3\\ASA LAB\\Drinks (1) (2).csv" # Update with your file path
-drinks_data <- read.csv(file_path)
+# Display standardized data
+cat("Standardized data:\n")
+head(standardized_data)
 
-# Extract the variable for which you want to calculate Z-scores
-beer_servings <- drinks_data$beer_servings
+# Visualize the data: Line Graph
+matplot(standardized_data, type = "l", main = "Line Graph", xlab = "Index", ylab = "Z-Scores")
 
-# Calculate mean and standard deviation
-mean_value <- mean(beer_servings)
-sd_value <- sd(beer_servings)
+# Visualize the data: Scatter Plot
+plot(standardized_data, main = "Scatter Plot", xlab = "Index", ylab = "Z-Scores")
 
-# Create Z-scores
-z_scores <- (beer_servings - mean_value) / sd_value
+# Visualize the data: Histogram
+hist(standardized_data, main = "Histogram", xlab = "Z-Scores", col = "blue", border = "black")
 
-# Print or use Z-scores as needed
-print(z_scores)
-
-# QQ Plot
-qqnorm(z_scores)
-qqline(z_scores, col = "red")
-
-plot(drinks_data$beer_servings, drinks_data$wine_servings)
+# Visualize the data: Dot Plot
+stripchart(standardized_data, method = "stack", main = "Dot Plot", xlab = "Index", pch = 19)
