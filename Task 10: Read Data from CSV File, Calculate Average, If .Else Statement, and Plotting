@@ -1,0 +1,31 @@
+# Read data from CSV file into a dataframe
+data <- read.csv("D:/ASA/csv/bikes.csv")
+data$bike.id
+# Specify the column for which you want to calculate the average
+target_column <- "bike.id"
+
+# Calculate the average of the specified column
+average_value <- mean(data[[target_column]])
+
+# Set the threshold for comparison
+threshold <- 50  # Replace with your desired threshold value
+
+# Use an if/else statement to determine whether the average is above or below the threshold
+if (average_value > threshold) {
+  cat("The average is above the threshold.\n")
+} else {
+  cat("The average is below or equal to the threshold.\n")
+}
+average_value
+# Visualize the data: Line Plot
+plot(data[[target_column]], type = "l", main = "Line Plot", xlab = "Index", ylab = "Values")
+
+# Visualize the data: Scatter Plot
+plot(data[[target_column]], main = "Scatter Plot", xlab = "Index", ylab = "Values")
+
+# Visualize the data: Histogram
+hist(data[[target_column]], main = "Histogram", xlab = "Values", col = "blue", border = "black")
+
+# Visualize the data: Dot Plot
+stripchart(data[[target_column]], method = "stack", main = "Dot Plot", xlab = "Index", pch = 19)
+
