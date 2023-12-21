@@ -46,4 +46,12 @@ plot(data$bike.id, type = "l", main = "Line Plot", xlab = "X-axis Label", ylab =
 
 # Scatter Plot
 cat("\nScatter Plot:\n")
-plot(data$bike.id, data$price, main = "Scatter Plot", xlab = "X-axis Label", ylab = "Y-axis Label", pch= 
+plot(data$bike.id, data$price, main = "Scatter Plot", xlab = "X-axis Label", ylab = "Y-axis Label", pch= 7)
+
+# Histogram
+cat("\nHistogram:\n")
+hist(data$bike.id, main = "Histogram", xlab = "Values", col = "green", border = "black")
+
+# Dot Plot
+cat("\nDot Plot:\n")
+stripchart(data$price, method = "stack", main = "Dot Plot", xlab = "X-axis Label",col = "blue", pch = 2)
