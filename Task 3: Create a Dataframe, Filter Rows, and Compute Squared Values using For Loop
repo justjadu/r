@@ -1,1 +1,34 @@
+#Task 3: Create a Dataframe, Filter Rows, and Compute Squared Values using For Loop
 
+
+
+# Create a dataframe
+data <- data.frame(
+  ID = 1:10,
+  Value = c(3, 8, 2, 10, 5, 7, 1, 6, 9, 4)
+)
+
+# Print the original dataframe
+cat("Original Dataframe:\n")
+print(data)
+
+# Filter rows based on a condition (e.g., keep rows where Value is greater than 5)
+filtered_data <- data[data$Value > 5, ]
+
+# Print the filtered dataframe
+cat("\nFiltered Dataframe:\n")
+print(filtered_data)
+
+# Compute squared values using a for loop
+squared_values <- vector("numeric", length = nrow(filtered_data))
+
+for (i in 1:nrow(filtered_data)) {
+  squared_values[i] <- filtered_data$Value[i]^2
+}
+
+# Add squared values to the dataframe
+filtered_data$Squared_Value <- squared_values
+
+# Print the final dataframe with squared values
+cat("\nFinal Dataframe with Squared Values:\n")
+print(filtered_data)
