@@ -1,0 +1,12 @@
+
+# Load necessary libraries
+library(ggplot2)
+
+# Read data from CSV file
+data <- read.csv("D:/ASA/csv/Bangalore.csv")
+
+# Create stacked dotplots
+ggplot(data, aes(x = quantitative_variable, y =Price, color quantitative_variable)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.7) +
+  labs(title = "Stacked Dotplots", x = "Category", y = "Variable") +
+  theme_minimal()
