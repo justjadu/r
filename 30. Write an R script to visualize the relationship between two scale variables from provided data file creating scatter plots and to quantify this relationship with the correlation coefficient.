@@ -1,0 +1,7 @@
+drinks_data <- read.csv("D:/ASA/csv/Drinks.csv")
+# Scatter plot for two scale variables
+plot(census_data$variable1, census_data$variable2, xlab = "Var1", ylab = "Var2")
+
+# Calculate correlation coefficient
+correlation_coeff <- cor(census_data$variable1, census_data$variable2)
+print(paste("Correlation Coefficient:", correlation_coeff))
