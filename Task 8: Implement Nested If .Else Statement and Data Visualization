@@ -1,0 +1,49 @@
+
+# Take user input for a number
+user_number <- as.numeric(readline(prompt = "Enter a number: "))
+# Nested if/else statement to classify the number
+if (user_number %% 2 == 0) {
+  # Even number
+  cat("The number is even.\n")
+  
+  if (user_number > 0) {
+    cat("The number is positive.\n")
+  } else if (user_number < 0) {
+    cat("The number is negative.\n")
+  } else {
+    cat("The number is zero.\n")
+  }
+} else {
+  # Odd number
+  cat("The number is odd.\n")
+  
+  if (user_number > 0) {
+    cat("The number is positive.\n")
+  } else if (user_number < 0) {
+    cat("The number is negative.\n")
+  } else {
+    cat("The number is zero.\n")
+  }
+}
+# Read CSV file into a dataframe
+data <- read.csv("D:/ASA/csv/bikes.csv")
+
+# Display the first few rows of the dataframe
+cat("First few rows of the dataframe:\n")
+head(data)
+
+# Display summary of the dataframe
+cat("\nSummary of the dataframe:\n")
+summary(data)
+
+# Display information about the dataframe
+cat("\nInformation about the dataframe:\n")
+str(data)
+
+# Plot data in line
+cat("\nLine Plot:\n")
+plot(data$bike.id, type = "l", main = "Line Plot", xlab = "X-axis Label", ylab = "Y-axis Label")
+
+# Scatter Plot
+cat("\nScatter Plot:\n")
+plot(data$bike.id, data$price, main = "Scatter Plot", xlab = "X-axis Label", ylab = "Y-axis Label", pch= 
