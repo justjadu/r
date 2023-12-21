@@ -1,0 +1,10 @@
+
+# Read Census.csv file into a dataframe
+census_data <- read.csv("D:/ASA/csv/bikes.csv")
+
+# Visualize the relationship between two scale variables using scatter plots
+# Assuming 'variable1' and 'variable2' are columns of interest
+plot(census_data$bike.id, census_data$price)
+
+# Quantify the relationship with the correlation coefficient
+correlation <- cor(census_data$bike.id, census_data$price) print(correlation)
