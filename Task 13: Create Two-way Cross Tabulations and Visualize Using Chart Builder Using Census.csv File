@@ -1,0 +1,20 @@
+library(gmodels)
+library(ggplot2)
+
+# Read data from the "bikes.csv" file into a dataframe
+census_data <- read.csv("D:/ASA/csv/bikes.csv")
+
+# Explore the relationship between variables with Cross-Tabulations
+cross_tab_result <- CrossTable(census_data$bike.id, census_data$price, expected = TRUE, chisq = TRUE, prop.chisq = TRUE)
+
+# Display the Cross-Tabulation result
+print(cross_tab_result)
+
+# Use the Chart Builder to visualize the relationship (replace variables with actual column names)
+chart_builder_plot <- ggplot(census_data, aes(x = as.factor(bike.id), fill = as.factor(price))) +
+  geom_bar(position = "fill", stat = "count") +
+  labs(title = "Chart Builder Visualization", x = "Bike ID", y = "Count") +
+  theme_minimal()
+
+# Display the Chart Builder plot
+print(chart_builder_plot)
