@@ -1,0 +1,29 @@
+
+# Create a dataframe and add a condition
+categorical_variable <- c("A", "B", "A", "B", "A")
+numeric_vector1 <- c(1, 2, 3, 4, 5)
+numeric_vector2 <- c(6, 7, 8, 9, 10)
+
+# Combine into a dataframe
+census_data <- data.frame(
+  categorical_variable,
+  numeric_vector1,
+  numeric_vector2
+)
+
+# Filter rows based on a specific condition
+filtered_data <- subset(census_data, categorical_variable == "A")
+
+# Initialize an empty vector to store sum values
+sum_vector <- numeric(length(numeric_vector1))
+
+# Iterate over the vectors and calculate the sum
+for (i in seq_along(numeric_vector1)) {
+  sum_vector[i] <- numeric_vector1[i] + numeric_vector2[i]
+}
+sum_vector
+# Line plot
+plot(sum_vector, type = "l", xlab = "Index", ylab = "Sum", main = "Line Plot")
+
+# Histogram
+hist(sum_vector, xlab = "Sum", main = "Histogram", col = "skyblue")
