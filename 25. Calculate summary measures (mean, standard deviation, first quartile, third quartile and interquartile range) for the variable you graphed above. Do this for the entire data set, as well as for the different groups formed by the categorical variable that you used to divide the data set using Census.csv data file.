@@ -1,0 +1,30 @@
+
+# Load necessary library
+library(dplyr)
+ 
+# Read the census.csv dataset
+census_data <- read.csv("census.csv")
+ 
+# Choose a quantitative variable (replace 'VariableName' with the actual variable name)
+variable <- census_data$VariableName
+ 
+# Calculate summary measures for the entire dataset
+summary_measures_all <- summary(variable)
+ 
+# Calculate summary measures for different groups formed by a categorical variable
+summary_measures_by_group <- census_data %>%
+  group_by(CategoricalVariable) %>%
+  summarise(
+    Mean = mean(VariableName),
+    SD = sd(VariableName),
+    Q1 = quantile(VariableName, 0.25),
+    Q3 = quantile(VariableName, 0.75),
+    IQR = IQR(VariableName)
+  )
+ 
+# Display the results
+print("Summary Measures for the Entire Dataset:")
+print(summary_measures_all)
+ 
+print("Summary Measures by Group:")
+print(summary_measures_by_group)
