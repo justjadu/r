@@ -1,0 +1,22 @@
+# Assuming you have loaded the required libraries
+library(ggplot2)
+library(ggpubr)
+
+# Read data from the "Census.csv" file into a dataframe
+census_data <- read.csv("D:/ASA/csv/Bangalore.csv")
+# Perform Independent-Samples T Test
+t_test_result <- t.test(Price(continuous) ~ Resale(binary), data = census_data)
+
+# Interpret the output
+cat("Independent-Samples T Test Result:\n")
+print(t_test_result)
+
+# Visualize the results with an error bar chart
+error_bar_chart <- ggplot(census_data, aes(x = Resale, y = Price, fill = Resale)) +
+  geom_bar(stat = "summary", fun = "mean", position = "dodge") +
+  geom_errorbar(stat = "summary", fun.data = "mean_se", position = "dodge", width = 0.2) +
+  labs(title = "Error Bar Chart", x = "Resale", y = "Price") +
+  theme_minimal()
+
+# Display the error bar chart
+print(error_bar_chart)
