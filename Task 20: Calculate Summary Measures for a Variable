@@ -1,0 +1,26 @@
+# Load necessary libraries
+library(dplyr)
+
+# Read data from CSV file
+data <- read.csv("path/to/your/data.csv")
+
+# Summary measures for the entire dataset
+summary_entire <- summary(data$Variable)
+
+# Summary measures for each group
+summary_by_group <- data %>%
+  group_by(Category) %>%
+  summarise(
+    Mean = mean(Variable),
+    SD = sd(Variable),
+    Q1 = quantile(Variable, 0.25),
+    Q3 = quantile(Variable, 0.75),
+    IQR = IQR(Variable)
+  )
+
+# Display the results
+cat("Summary Measures for the Entire Dataset:\n")
+print(summary_entire)
+
+cat("\nSummary Measures by Group:\n")
+print(summary_by_group)
