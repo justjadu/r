@@ -1,0 +1,24 @@
+library(readxl)
+library(ggplot2)
+
+# Read data from Excel file
+excel_data <- read_excel("path/to/data.xlsx")
+
+# Read drinks data from CSV file
+drinks_data <- read.csv("path/to/drinks.csv")
+
+# Print 5-point summary
+cat("5-Point Summary of DataFrame:\n")
+summary(excel_data)
+
+# Box-whisker plot
+boxplot(excel_data, main = "Box-Whisker Plot")
+
+# Dot plot using ggplot2
+dot_plot <- ggplot(drinks_data, aes(x = your_variable)) +
+  geom_dotplot(binaxis = "y", stackdir = "center", dotsize = 0.7) +
+  labs(title = "Dot Plot") +
+  theme_minimal()
+
+# Display dot plot
+print(dot_plot)
