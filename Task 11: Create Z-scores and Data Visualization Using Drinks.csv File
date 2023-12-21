@@ -1,0 +1,28 @@
+# Install required packages if not installed
+# install.packages("readr")
+
+# Load required library
+library(readr)
+
+# Read data from CSV file
+file_path <- "D:\\semester 3\\ASA LAB\\Drinks (1) (2).csv" # Update with your file path
+drinks_data <- read.csv(file_path)
+
+# Extract the variable for which you want to calculate Z-scores
+beer_servings <- drinks_data$beer_servings
+
+# Calculate mean and standard deviation
+mean_value <- mean(beer_servings)
+sd_value <- sd(beer_servings)
+
+# Create Z-scores
+z_scores <- (beer_servings - mean_value) / sd_value
+
+# Print or use Z-scores as needed
+print(z_scores)
+
+# QQ Plot
+qqnorm(z_scores)
+qqline(z_scores, col = "red")
+
+plot(drinks_data$beer_servings, drinks_data$wine_servings)
