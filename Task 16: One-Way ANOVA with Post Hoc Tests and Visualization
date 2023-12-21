@@ -1,0 +1,20 @@
+# Assuming 'Census.csv' contains necessary columns for ANOVA
+census_data <- read.csv("D:/ASA/csv/ass7 Iris.csv")
+
+# Perform One-Way ANOVA
+library(car)
+anova_result <- aov(Sno(continuous) ~ Species(categorical), data = census_data)
+summary(anova_result)
+
+# Post hoc tests (e.g., Tukey's HSD)
+posthoc <- TukeyHSD(anova_result)
+print(posthoc)
+
+# Visual representation using suitable graphs
+# For instance, boxplot and bar plot
+
+# Boxplot
+boxplot(Sno ~ Species, data = census_data, main = "Boxplot - One-Way ANOVA", xlab = "Species", ylab = "Sno")
+
+# Bar plot
+barplot(table(census_data$Species), main = "Bar Plot - Species Count", xlab = "Species", ylab = "Count", col = "skyblue")
