@@ -1,0 +1,49 @@
+#Task 6: Use If/Else Statement and Plot User Input Data
+
+
+
+
+# Function to determine the sign of a number
+get_sign <- function(number) {
+  if (is.na(number)) {
+    return("Invalid input. Please enter a numeric value.")
+  } else if (number > 0) {
+    return("Positive")
+  } else if (number < 0) {
+    return("Negative")
+  } else {
+    return("Zero")
+  }
+}
+
+# Take user input for a number
+user_input <- as.numeric(readline("Enter a number: "))
+
+# Use if/else statement to determine the sign of the number
+result <- get_sign(user_input)
+cat("The entered number is:", result, "\n\n")
+
+# Take user input for creating vectors x and y
+num_points <- as.numeric(readline("Enter the number of points for the graph: "))
+
+# Check if num_points is a valid numeric value and a positive integer
+if (!is.na(num_points) && num_points > 0 && num_points == floor(num_points)) {
+  x <- numeric(num_points)
+  y <- numeric(num_points)
+  
+  # Populate vectors x and y with user input
+  for (i in 1:num_points) {
+    x[i] <- as.numeric(readline(paste("Enter x[", i, "]: ")))
+    y[i] <- as.numeric(readline(paste("Enter y[", i, "]: ")))
+  }
+  
+  # Plot the graph
+  plot(x, y, main = "Scatter Plot", xlab = "X-axis", ylab = "Y-axis", col = "blue", pch = 16)
+  
+  # Add labels for each point on the plot
+  for (i in 1:num_points) {
+    text(x[i], y[i], labels = paste("(", x[i], ",", y[i], ")"), pos = 3, col = "red")
+  }
+} else {
+  cat("Invalid input for the number of points. Please enter a positive integer.\n")
+}
