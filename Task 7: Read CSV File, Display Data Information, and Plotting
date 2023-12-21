@@ -1,0 +1,35 @@
+# Task 7: Read CSV File, Display Data Information, and Plotting
+
+# Allow the user to choose a file interactively
+file_path <- file.choose()
+
+# Read CSV file into a dataframe
+data <- read.csv(file_path)
+
+# Display the first few rows of the dataframe
+cat("First few rows of the dataframe:\n")
+head(data)
+
+# Summary of dataset
+cat("\nSummary of the dataset:\n")
+summary(data)
+
+# Information about the dataset
+cat("\nInformation about the dataset:\n")
+str(data)
+
+# Line plot (replace 'column_name' with the actual column name you want to plot)
+cat("\nLine plot:\n")
+plot(data$column_name, type = "l")
+
+# Scatter plot (replace 'column_name1' and 'column_name2' with the actual column names)
+cat("\nScatter plot:\n")
+plot(data$column_name1, data$column_name2)
+
+# Histogram (replace 'column_name' with the actual column name you want to plot)
+cat("\nHistogram:\n")
+hist(data$column_name)
+
+# Dot plot (replace 'column_name' with the actual column name you want to plot)
+cat("\nDot plot:\n")
+dotchart(data$column_name)
